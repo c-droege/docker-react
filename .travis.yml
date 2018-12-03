@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t gulliva/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run gulliva/docker-react npm run test -- --coverage
